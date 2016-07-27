@@ -1,0 +1,27 @@
+@Controller
+@RequestMapping("/book")
+@SessionAttributes(value={"book", "description"},types={Double.class})
+public class BookController {
+    private final Log logger = LogFactory.getLog(BookController.class);
+    @RequestMapping("/index")
+    public String index(Model model) throws Exception {
+        model.addAttribute("book", "金刚经");
+        model.addAttribute("description", "般若系列重要经典");
+        model.addAttribute("price", new Double("999.99"));
+        return "redirect:get";
+    }
+    @RequestMapping("/get")
+    public String getBySessionAttributes(@ModelAttribute("book") String book, ModelMap model, SessionStatus sessionStatus) throws Exception {
+        logger.info("==========getBySessionAttributes============");
+        logger.info("get by @ModelAttribute:"+book);
+        logger.info("get by ModelMap:"+model.get("book")+"："+model.get("description")+"，"+model.get("price"));
+        sessionStatus.setComplete();
+        return "redirect:complete";
+    }
+    @RequestMapping("/complete")
+    public String afterComplete(ModelMap model) throws Exception {
+        logger.info("==========afterComplete============");
+        logger.info(model.get("book")+"："+model.get("description")+"，"+model.get("price"));
+        return "index";
+    }
+}

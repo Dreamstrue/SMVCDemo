@@ -1,0 +1,10 @@
+@RequestMapping(value={"/signup"},method= {RequestMethod.POST})
+public String signup( @Validated User user, BindingResult br, RedirectAttributes ra) throws Exception {
+    ra.addFlashAttribute("user", user);
+    return "redirect:show";
+}
+
+@RequestMapping(value={"/show"},method= {RequestMethod.GET})
+public String show (@Validated User user, BindingResult br) throws Exception {
+    return "/user.jsp";
+}

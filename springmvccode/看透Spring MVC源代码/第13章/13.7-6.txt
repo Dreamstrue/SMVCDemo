@@ -1,0 +1,6 @@
+// Get /telephones/iphone/telephoneNumbers/liyang;group=englishTeacher
+@RequestMapping(value={"/telephones/{telName}/telephoneNumbers/{name}"},method= {RequestMeth-od.GET})
+public void getTel(@PathVariable String telName, @PathVariable String name, @MatrixVariable(required = false) String gender, @MatrixVariable(required = false) String group){
+    // telName=iphone
+    // name=liyang  gender=null  group=englishTeacher
+}

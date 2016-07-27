@@ -1,0 +1,9 @@
+<servlet>
+    <servlet-name>let'sGo</servlet-name>
+    <servlet-class>org.springframework.web.servlet.DispatcherServlet</servlet-class>
+    <init-param>
+        <param-name>contextConfigLocation</param-name>
+        <param-value>WEB-INF/let'sGo-servlet.xml</param-value>
+    </init-param>
+    <async-supported>true</async-supported>
+</servlet>

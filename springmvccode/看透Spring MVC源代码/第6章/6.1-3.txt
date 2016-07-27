@@ -1,0 +1,2 @@
+String contextLocation = getServletConfig().getServletContext().getInitParameter("contextConfigLocation");
+String servletLocation = getServletConfig().getInitParameter("contextConfigLocation");

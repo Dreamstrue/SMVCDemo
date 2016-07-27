@@ -1,0 +1,6 @@
+ // Get /telephones/xiaomi;colors=black,red,golden;group=note/telephoneNumbers/liyang;group=englishTeacher
+@RequestMapping(value={"/telephones/{telName}/telephoneNumbers/{name}"},method= {RequestMeth-od.GET})
+public void getTel(@PathVariable String telName, @MatrixVariable(value="group", pathVar="telName", required = false) String telGroup,@PathVariable String name, @MatrixVariable(required = false) Set<String> colors, @MatrixVariable(required = false) String gender, @MatrixVariable(value="group", pathVar="name", required = false) String group){
+    // telName=xiaomi  colors={black,red,golden} telGroup=note
+    // name=liyang  gender=null  group=englishTeacher
+}

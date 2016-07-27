@@ -1,0 +1,22 @@
+@ControllerAdvice
+public class HahaResponseBodyAdvice implements ResponseBodyAdvice<String> {
+    @Override
+    public boolean supports(MethodParameter returnType, Class<? extends HttpMessageConverter<?>> con-verterType) {
+        return true;
+    }
+
+    @Override
+    public String beforeBodyWrite(String body, MethodParameter returnType, MediaType selectedContentType,
+                                  Class<? extends HttpMessageConverter<?>> selectedConverterType,
+                                  ServerHttpRequest request, ServerHttpResponse response) {
+        return body+"<br/> haha,this is been modified";
+    }
+}
+
+//com.excelib.controller.GoController
+//在处理器返回值前暂时添加@ResponseBody注释
+@RequestMapping(value={"/index","/"},method= {RequestMethod.GET})
+@ResponseBody public String index(HttpServletRequest request, Model model) throws Exception {
+   model.addAttribute("msg", "Go Go Go!"); 
+   return "go.jsp";
+}

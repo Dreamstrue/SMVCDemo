@@ -1,0 +1,5 @@
+// Get  /telephoneNumbers/liyang;gender=male
+@RequestMapping(value={"/telephoneNumbers/{name}"},method= {RequestMethod.GET})
+public void getTel(@PathVariable String name, @MatrixVariable String gender){
+    // name=liyang  gender=male
+}

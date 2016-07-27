@@ -1,0 +1,20 @@
+private class BossListener implements AsyncListener {
+    final SimpleDateFormat formatter = new SimpleDateFormat("yyyy-MM-dd HH:mm:ss");
+    @Override
+    public void onComplete(AsyncEvent event) throws IOException {
+        System.out.println("在" + formatter.format(new Date()) + "工作处理完成");
+    }
+    @Override
+    public void onError(AsyncEvent event) throws IOException {
+        System.out.println("在" + formatter.format(new Date()) + "工作处理出错，详情如下：\t"
+            +event.getThrowable().getMessage());
+    }
+    @Override
+    public void onStartAsync(AsyncEvent event) throws IOException {
+        System.out.println("在" + formatter.format(new Date()) + "工作处理开始");
+    }
+    @Override
+    public void onTimeout(AsyncEvent event) throws IOException {
+        System.out.println("在" + formatter.format(new Date()) + "工作处理超时");
+    }
+}

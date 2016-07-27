@@ -1,0 +1,33 @@
+package com.excelib.controller;
+
+import javax.servlet.*;
+import javax.servlet.http.HttpServlet;
+import javax.servlet.http.HttpServletRequest;
+import javax.servlet.http.HttpServletResponse;
+import java.io.IOException;
+import java.io.PrintWriter;
+
+@Controller
+public class AsyncController {
+    @ResponseBody
+    @RequestMapping(value = "/deferred",produces = "text/plain; charset=UTF-8")
+    public DeferredResult<String> deferredResultExam() {
+        final DeferredResult<String> result = new DeferredResult<String>(7*1000L, "超时了");
+        approve(result);
+        return result;
+    }
+    private void approve(DeferredResult<String> result){
+        Runnable r = new Runnable() {
+            @Override
+            public void run() {
+                try {
+                    Thread.sleep(5 * 1000L);
+                    result.setResult("同意 "+new SimpleDateFormat("yyyy-MM-dd").format(new Date()));
+                } catch (Exception e) {
+                    e.printStackTrace();
+                }
+            }
+        };
+        new Thread(r).start();
+    }
+}

@@ -1,0 +1,22 @@
+@Controller
+@RequestMapping("/valid")
+public class ValidatorController {
+    @Autowired
+    private UserValidator validator;
+    @InitBinder
+    private void initBinder(WebDataBinder binder) {
+        binder.addValidators(validator);
+    }
+
+    @RequestMapping(value={"/index", "/", ""},method= {RequestMethod.GET})
+    public String index(ModelMap m) throws Exception {
+        m.addAttribute("user", new User());
+       return "user.jsp";
+    }
+
+    @RequestMapping(value={"/signup"},method= {RequestMethod.POST})
+    public String signup( @Valid User user, BindingResult br, RedirectAttributes ra) throws Exception {
+        ra.addFlashAttribute("user", user);
+        return " user.jsp ";
+    }
+}

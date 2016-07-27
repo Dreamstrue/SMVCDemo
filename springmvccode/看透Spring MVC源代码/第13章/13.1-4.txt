@@ -1,0 +1,25 @@
+//执行处理前给Model设置("className ", " com.excelib.controller.GoController ")
+    @ModelAttribute("className")
+    public String setModel() throws IOException {
+        return this.getClass().getName();
+    }
+    //执行处理前给Model设置("teacher", "孔老夫子")
+    @ModelAttribute
+    public void setModel1(Model model) throws IOException {
+        model.addAttribute("teacher", "孔老夫子");
+    }
+    //执行处理前给Model设置("string", "excelib")
+    @ModelAttribute
+    public String setModel2() throws IOException {
+        return "excelib";
+    }
+    @RequestMapping(value={"/index","/"},method= {RequestMethod.GET})
+    public String index(HttpServletRequest request, Model model) throws Exception {
+        Map m = model.asMap();
+        logger.info("className"+"——>"+m.get("className"));
+        logger.info("teacher"+"——>"+m.get("teacher"));
+        logger.info("string"+"——>"+m.get("string"));
+
+        model.addAttribute("msg", "Go Go Go!");
+    return "go.jsp";
+    }

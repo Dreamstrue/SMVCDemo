@@ -1,0 +1,9 @@
+<servlet>
+    <servlet-name>let'sGo</servlet-name>
+    <servlet-class>org.springframework.web.servlet.DispatcherServlet</servlet-class>
+    <init-param>
+        <param-name>contextAttribute</param-name>
+        <param-value>haha</param-value>
+    </init-param>
+    <load-on-startup>1</load-on-startup>
+</servlet>

@@ -1,0 +1,13 @@
+@RequestMapping(value = "/submit", method = RequestMethod. POST)
+public String submit(RedirectAttributes attr) throws IOException {
+((FlashMap)((ServletRequestAttributes)(RequestContextHolder.getRequestAttributes())).getRequest().getAttribute(DispatcherServlet.OUTPUT_FLASH_MAP_ATTRIBUTE)).put("name ", "ÕÅÈý·á");
+    attr.addFlashAttribute("ordersId", "xxx");
+    attr.addAttribute("local","zh-cn");
+    return "redirect:showorders ";
+}
+
+@RequestMapping(value = "/showorders", method = RequestMethod.GET)
+public String showOrders(Model model) throws IOException {
+    doSomthing...
+    return "orders";
+}

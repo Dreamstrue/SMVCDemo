@@ -1,0 +1,5 @@
+<bean id="themeSource" class="org.springframework.ui.context.support.ResourceBundleThemeSource"
+     p:basenamePrefix="com.excelib.themes."/>
+
+<bean id="themeResolver" class="org.springframework.web.servlet.theme.CookieThemeResolver"
+     p:defaultThemeName="default"/>

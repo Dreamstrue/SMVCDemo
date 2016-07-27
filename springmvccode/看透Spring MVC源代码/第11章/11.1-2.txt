@@ -1,0 +1,4 @@
+<bean class="com.excelib.TudouHandlerMapping"
+        p:order="1"/>
+<bean class="com.excelib.TudoupianHandlerMapping"
+        p:order="0"/>

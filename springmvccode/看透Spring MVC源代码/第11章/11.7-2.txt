@@ -1,0 +1,7 @@
+<mvc:interceptors>
+    <mvc:interceptor>
+        <mvc:mapping path="/*" />
+        <bean class="org.springframework.web.servlet.theme.ThemeChangeInterceptor"
+                p:paramName="theme"/>
+    </mvc:interceptor>
+</mvc:interceptors>

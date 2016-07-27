@@ -1,0 +1,22 @@
+package com.excelib.controller;
+
+import org.springframework.web.servlet.HandlerExecutionChain;
+import org.springframework.web.servlet.HandlerMapping;
+import javax.servlet.http.HttpServletRequest;
+
+public class DiguaHandlerMapping implements HandlerMapping {
+    @Override
+    public HandlerExecutionChain getHandler(HttpServletRequest request) throws Exception {
+        String url = request.getRequestURI().toString();
+        String method = request.getMethod();
+        if(url.startsWith("/tudou")){
+            if(method.equalsIgnoreCase("GET"))
+                return "maidigua"对应的Handler;
+            else if(method.equalsIgnoreCase("POST"))
+                return "shoudigua"对应的Handler;
+            else
+                return "digua"对应的Handler;
+        }
+        return null;
+    }
+}

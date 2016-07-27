@@ -1,0 +1,2 @@
+hello.(class)=org.springframework.Web.servlet.view.InternalResourceView 
+hello.url=/WEB-INF/go.jsp

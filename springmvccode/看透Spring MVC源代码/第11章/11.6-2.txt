@@ -1,0 +1,7 @@
+<mvc:interceptors>
+    <mvc:interceptor>
+        <mvc:mapping path="/*" />
+        <bean class="org.springframework.web.servlet.i18n.LocaleChangeInterceptor"
+                p:paramName="lang"/>
+    </mvc:interceptor>
+</mvc:interceptors>

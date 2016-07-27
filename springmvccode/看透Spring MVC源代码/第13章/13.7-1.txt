@@ -1,0 +1,15 @@
+// Get  /students/176
+@RequestMapping(value={"/students/{studentId}"},method= {RequestMethod.GET})
+public void getStudent(@PathVariable String studentId){
+    // studentId = 176
+}
+// Get  /students/176/books/7
+@RequestMapping(value={"/students/{studentId}/books/{bookId}"},method= {RequestMethod.GET})
+public void getStudentBook(@PathVariable String bookId, @PathVariable String studentId){
+    // studentId = 176, bookId = 7
+}
+// Get  /books/7
+@RequestMapping(value={"/books/{id}"},method= {RequestMethod.GET})
+public void getBook(@PathVariable("id") String bookId){
+    // bookId = 7
+}

@@ -59,5 +59,10 @@ public class GoController implements EnvironmentAware{
 		}
 		int c = se.size();
 		System.out.println(c);
+		
+		
+//		HttpServletBean
+		
+//		FrameworkServlet
 	}
 }
